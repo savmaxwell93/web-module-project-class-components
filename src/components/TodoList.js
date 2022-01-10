@@ -7,7 +7,10 @@ class TodoList extends React.Component {
         return (
             <div>
                 <p>Task List</p>
-          </div>
+                <ul>
+                    {this.props.tasks.map(task => {return (<li>{task.task} {task.completed ? <span>--Completed--</span> : <span></span>} </li>)})}
+                </ul>
+            </div>
         )
     }
 }

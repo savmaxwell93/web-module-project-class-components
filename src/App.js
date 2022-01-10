@@ -1,19 +1,32 @@
 import React from 'react';
+import Todo from './components/Todo'
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 const tasks = [
   {
-    task: 'Organize Garage',
+    task: 'Walk Audrey',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Do Dishes',
     id: 1528817084358,
+    completed: false
+  },
+  {
+    task: 'Cook Dinner',
+    id: 152834584358,
+    completed: false
+  },
+  {
+    task: 'Buy Baskets',
+    id: 153454584358,
     completed: false
   }
 ]
+
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,7 +35,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: tasks,
+      tasks: tasks
     }
   }
   render() {
@@ -32,9 +45,7 @@ class App extends React.Component {
         <div>
           <p>Task List</p>
           <ul>
-            <li>Walk Audrey</li>
-            <li>Do Dishes</li>
-            <li>Cook Dinner</li>
+            {this.state.tasks.map(task => {return (<Todo task={task} key={task.id}/>)})}
           </ul>
         </div>
         <div>
