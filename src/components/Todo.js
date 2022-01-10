@@ -1,9 +1,15 @@
 import React from 'react';
 
 class Todo extends React.Component {
+
+    handleClick = () => {
+        console.log('clicked list item', this.props.task.task)
+        //Change task.completed to !task.completed
+    }
+
     render() {
         return (
-          <li>{this.props.task.task} {this.props.task.completed ? <span>--Completed--</span> : <span></span>} </li>
+          <li onClick={this.handleClick}>{this.props.task.task} {this.props.task.completed ? <span>--Completed--</span> : <span></span>} </li>
         )
     }
   }

@@ -25,8 +25,6 @@ const tasks = [
   }
 ]
 
-
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -37,13 +35,34 @@ class App extends React.Component {
       tasks: tasks
     }
   }
+  // Mark Completed
+  // handleToggleItem = () => {
+
+  // }
+
+  //Add Task
+  // addTask = () => {
+
+  // }
+
+  //Clear Completed
+  handleClear = () => {
+    console.log('clicked clear button')
+    this.setState({
+      ...this.state,
+      tasks: this.state.tasks.filter(task => {
+        return !task.completed;
+      })
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={tasks}/>
+        <TodoList tasks={this.state.tasks} handleToggleItem={this.handleToggleItem} />
         <TodoForm/>
-        <button>Clear Completed Tasks</button>
+        <button onClick={this.handleClear}>Clear Completed Tasks</button>
       </div>
     );
   }
