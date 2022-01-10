@@ -12,6 +12,6 @@ class TodoForm extends React.Component {
           </div>
         )
     }
-}
+  }
 
 export default TodoForm;
