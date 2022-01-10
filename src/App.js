@@ -1,7 +1,5 @@
 import React from 'react';
-import Todo from './components/Todo'
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList'
 
 const tasks = [
   {
@@ -42,12 +40,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <div>
-          <p>Task List</p>
-          <ul>
-            {this.state.tasks.map(task => {return (<Todo task={task} key={task.id}/>)})}
-          </ul>
-        </div>
+        <TodoList tasks={tasks}/>
         <div>
           <p>New Task Form</p>
           <form>

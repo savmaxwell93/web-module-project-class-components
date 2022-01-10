@@ -6,13 +6,13 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
-                <p>Task List</p>
-                <ul>
-                    {this.props.tasks.map(task => {return (<li>{task.task} {task.completed ? <span>--Completed--</span> : <span></span>} </li>)})}
-                </ul>
+              <p>Task List</p>
+              <ul>
+                {this.props.tasks.map(task => {return (<Todo task={task} key={task.id}/>)})}
+              </ul>
             </div>
         )
     }
-}
+  }
 
 export default TodoList;
