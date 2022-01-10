@@ -50,13 +50,20 @@ class App extends React.Component {
   }
 
   //Add Task
-  // addTask = () => {
-
-  // }
+  addTask = (taskName) => {
+    const newTask = {
+      task: taskName,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      tasks: [...this.state.tasks, newTask]
+    })
+  }
 
   //Clear Completed
   handleClear = () => {
-    console.log('clicked clear button')
     this.setState({
       ...this.state,
       tasks: this.state.tasks.filter(task => {
@@ -70,7 +77,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasks} handleToggleItem={this.handleToggleItem} />
-        <TodoForm/>
+        <TodoForm addTask={this.addTask} />
         <button onClick={this.handleClear}>Clear Completed Tasks</button>
       </div>
     );
