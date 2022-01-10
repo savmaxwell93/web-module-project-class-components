@@ -3,8 +3,7 @@ import React from 'react';
 class Todo extends React.Component {
 
     handleClick = () => {
-        console.log('clicked list item', this.props.task.task)
-        //Change task.completed to !task.completed
+        this.props.handleToggleItem(this.props.task)
     }
 
     render() {

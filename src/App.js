@@ -36,9 +36,18 @@ class App extends React.Component {
     }
   }
   // Mark Completed
-  // handleToggleItem = () => {
-
-  // }
+  handleToggleItem = (selectedTask) => {
+    this.setState({
+      ...this.state,
+     tasks: this.state.tasks.map(task => {
+       if(task.id === selectedTask.id) {
+         return({...task, completed: !task.completed})
+       } else {
+         return task;
+       }
+     })
+    });
+  }
 
   //Add Task
   // addTask = () => {
